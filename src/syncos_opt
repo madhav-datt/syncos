@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Automatically sync folders across different operating systems
+# Script for various operations with flags --add, --list and --remove
+#
+# Copyright (C)   2016    Madhav Datt
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+
+if [[ $# == 0 ]]
+then
+    printf "Usage: syncos --flag [argument_1] [argument_2]";
+
+elif [[ $1 == "--add" ]]
+then
+    ./syncos "$2" "$3"
+
+elif [[ $1 == "--list" ]]
+then
+    
+fi
