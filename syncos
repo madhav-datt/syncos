@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-# Automatically sync folders across different operating systems
-# Designed for dual-boot systems with atleast one OS being a Linux
-#
-# Copyright (C)   2016    Madhav Datt
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-
