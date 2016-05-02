@@ -11,23 +11,22 @@
 # Sync once per minute using rsync
 if [[ $# == 2 ]]
 then
-
     # Build absolute paths for directory $2
     # Directory path $2 passed by the user is relative to C:// of Windows OS
     # Example: $2 = Users//Madhav//Desktop//Work
-    v = "/mnt/"$2
-    printf "$2";
+    WIN_OS_DIR="/mnt/""$2"
+
     # Check is directories $1 and $2 exist
     # Directories could be symbolic links
-    if [[ -d "$1" ]] && [[ -d "$2" ]]
+    if [[ -d "$1" ]] && [[ -d "$WIN_OS_DIR" ]]
     then
         # Add rsync commands to crontab
         # Write out current crontab to temporary file
         crontab -l > tmp_cron
 
         # Echo new cron job into temporary cron file
-        echo "* * * * * rsync -a $1/ $2/" >> tmp_cron
-        echo "* * * * * sleep 30; rsync -a $2/ $1/" >> tmp_cron
+        echo "* * * * * rsync -a $1/ $WIN_OS_DIR/" >> tmp_cron
+        echo "* * * * * rsync -a $WIN_OS_DIR/ $1/" >> tmp_cron
 
         # Install new cron file
         crontab tmp_cron
