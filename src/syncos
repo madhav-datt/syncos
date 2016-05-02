@@ -1,8 +1,21 @@
 #!/bin/bash
 #
 # Automatically sync folders across different operating systems
-# Designed for dual/multi-boot systems with atleast one OS being a Linux
+# Designed for dual/multi-boot systems with atleast one OS being a Linux flavor
 #
 # Copyright (C)   2016    Madhav Datt
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
+
+# Check for number of arguments passed while executing script
+# Reject if neither 2 nor 3 argument
+if [ $# != 2 ] || [ $# != 3 ]
+then
+    # Optional --delete flag
+    # Delete any files that are in OS2_Directory and not in OS1_Directory
+    printf "Usage: syncos [--delete] folder/path/OS1_Directory folder/path/OS2_Directory \n";
+
+# Execute only for two argument passed case
+else
+
+fi
