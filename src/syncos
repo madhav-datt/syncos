@@ -8,20 +8,27 @@
 #
 
 # Directory sync without deletion
+# Sync once per minute using rsync
 if [[ $# == 2 ]]
 then
+
+    # Build absolute paths for directory $2
+    # Directory path $2 passed by the user is relative to C:// of Windows OS
+    # Example: $2 = Users//Madhav//Desktop//Work
+    v = "/mnt/"$2
+    printf "$2";
     # Check is directories $1 and $2 exist
     # Directories could be symbolic links
     if [[ -d "$1" ]] && [[ -d "$2" ]]
     then
-        # Add rsync command to crontab
+        # Add rsync commands to crontab
         # Write out current crontab to temporary file
         crontab -l > tmp_cron
 
         # Echo new cron job into temporary cron file
-        echo "* * * * * rsync -a $1 $2" >> tmp_cron
-        echo "* * * * * rsync -a $2 $1" >> tmp_cron
-        
+        echo "* * * * * rsync -a $1/ $2/" >> tmp_cron
+        echo "* * * * * sleep 30; rsync -a $2/ $1/" >> tmp_cron
+
         # Install new cron file
         crontab tmp_cron
         rm tmp_cron
@@ -32,7 +39,6 @@ then
 # Check for number of arguments passed while executing script
 # Reject if exactly 2 arguments are not present
 else
-    # Optional --delete flag
     # Delete any files that are in OS2_Directory and not in OS1_Directory
-    printf "Usage: syncos folder/path/OS1_Directory folder/path/OS2_Directory [--delete] \n";
+    printf "Usage: syncos folder/path/OS1_Directory folder/path/OS2_Directory \n";
 fi
