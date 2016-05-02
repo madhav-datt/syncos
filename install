@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# Installation script for syncos
+# Automatically sync folders across different operating systems
+#
+# Copyright (C)   2016    Madhav Datt
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+
+apt-get install rsync
+
+# Pass disk partition of secondary OS as argument
+umount /dev/"$1"
+mount /dev/"$1" /mnt
+
+# Move super-focus to /etc
+cd /etc
+mkdir syncos
+mv ~/Downloads/syncos/* /etc/syncos
+cd /etc/syncos
+
+# Grant execute permissions to shell scripts
+chmod +x src/syncos_opt
+chmod +x src/syncos
+chmod +x src/syncos_rm
+
+# Add permanent aliases for scripts
+cat aliases.txt >> ~/.bash_aliases
+. ~/.bashrc
+
+# Clean downloaded folders
+rm -rf ~/Downloads/syncos
+rm ~/Downloads/syncos-v1.0.zip
