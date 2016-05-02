@@ -1,3 +1,3 @@
-# synoc
+# syncos
 
-Conveniently sync files across operating systems on your dual booted machines
+Sync files across operating systems on your dual booted machine
