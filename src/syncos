@@ -7,15 +7,20 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 
+# Directory sync without deletion
+if [ $# == 2 ]
+
+then
+
+# If optional --delete flag is included
+elif [ $# == 3 ]
+
+then
+
 # Check for number of arguments passed while executing script
 # Reject if neither 2 nor 3 argument
-if [ $# != 2 ] || [ $# != 3 ]
-then
+else
     # Optional --delete flag
     # Delete any files that are in OS2_Directory and not in OS1_Directory
     printf "Usage: syncos [--delete] folder/path/OS1_Directory folder/path/OS2_Directory \n";
-
-# Execute only for two argument passed case
-else
-
 fi
