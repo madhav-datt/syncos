@@ -8,19 +8,31 @@
 #
 
 # Directory sync without deletion
-if [ $# == 2 ]
-
+if [[ $# == 2 ]]
 then
+    # Check is directories $1 and $2 exist
+    # Directories could be symbolic links
+    if [[ -d "$1" ]] && [[ -d "$2" ]]
+    then
+        # Add rsync command to crontab
+        # Write out current crontab to temporary file
+        crontab -l > tmp_cron
 
-# If optional --delete flag is included
-elif [ $# == 3 ]
-
-then
+        # Echo new cron job into temporary cron file
+        echo "* * * * * rsync -a $1 $2" >> tmp_cron
+        echo "* * * * * rsync -a $2 $1" >> tmp_cron
+        
+        # Install new cron file
+        crontab tmp_cron
+        rm tmp_cron
+    else
+        printf "Directories $1 or $2 not found - syncos failed \n";
+    fi
 
 # Check for number of arguments passed while executing script
-# Reject if neither 2 nor 3 argument
+# Reject if exactly 2 arguments are not present
 else
     # Optional --delete flag
     # Delete any files that are in OS2_Directory and not in OS1_Directory
-    printf "Usage: syncos [--delete] folder/path/OS1_Directory folder/path/OS2_Directory \n";
+    printf "Usage: syncos folder/path/OS1_Directory folder/path/OS2_Directory [--delete] \n";
 fi
