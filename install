@@ -7,7 +7,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 
-if [[ $# != 1 ]] || [[ ! -d "/dev/$1" ]]
+if [[ $# != 1 ]]
 then
     printf "Usage: ./install disk_part \n";
     printf "disk_part is partition containing secondary OS \n";
