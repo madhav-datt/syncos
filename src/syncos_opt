@@ -10,7 +10,7 @@
 # Add new pair of directories to sync
 if [[ $# == 3 ]] && [[ $1 == "--add" ]]
 then
-    ./syncos "$2" "$3"
+    ./syncos_add "$2" "$3"
 
 # List all directories being syncos'ed
 elif [[ $# == 1 ]] && [[ $1 == "--list" ]]
