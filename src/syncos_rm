@@ -23,6 +23,7 @@ then
     else
         printf "Directories not recognized \n";
         printf "Type syncos for usage help \n";
+    fi
 
 # Check for number of arguments passed while executing script
 # Reject if exactly 2 arguments are not present
