@@ -1,0 +1,2 @@
+# Alias to run syncos_opt from command line
+alias syncos='. /etc/syncos/src/syncos_opt'
