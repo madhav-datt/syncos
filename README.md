@@ -1,4 +1,4 @@
-# syncos
+# syncos :computer: :arrows_counterclockwise: :computer:
 
 Working on two operating systems can be a pain, and even more so if you use both for similar kinds of work. `syncos` helps you sync directories across operating systems on your dual booted machine so you don't have to keep switching or copy-pasting files from one OS to the other.
 
@@ -15,3 +15,11 @@ $ sudo syncos/install
 The program uses `rsync` which will be installed by the `install` script.
 
 ## Using syncos
+
+### help
+
+### add
+
+### list
+
+### remove
