@@ -20,6 +20,7 @@ then
         cat syncos_track.txt
     else
         printf "No directories added for syncing yet \n";
+    fi
 
 # Stop syncing directories
 elif [[ $# == 3 ]] && [[ $1 == "--remove" ]]
@@ -28,22 +29,21 @@ then
 
 # Display help if incorrect OPTION used
 else
-    printf "            syncos Copyright (C) 2016 by Madhav Datt
-            Website: https://github.com/madhav-datt/syncos
-            syncos comes with ABSOLUTELY NO WARRANTY.  This is free software, and you
-            are welcome to redistribute it under certain conditions.  See the GNU
-            General Public Licence for details.
+    printf "syncos Copyright (C) 2016 by Madhav Datt \n";
+    printf "Website: https://github.com/madhav-datt/syncos \n";
+    printf "syncos comes with ABSOLUTELY NO WARRANTY.  This is free software, and you \n";
+    printf "are welcome to redistribute it under certain conditions.  See the GNU \n";
+    printf "General Public Licence for details. \n\n";
 
-            Usage: syncos --add ... DIRECTORY-1... DIRECTORY-2
-              or   syncos --list
-              or   syncos --remove ... DIRECTORY-1... DIRECTORY-2
+    printf "Usage: syncos --add ... DIRECTORY-1... DIRECTORY-2 \n";
+    printf "  or   syncos --list \n";
+    printf "  or   syncos --remove ... DIRECTORY-1... DIRECTORY-2 \n\n";
 
-            DIRECTORY-1 is path to directory on primary (Linux) OS
-            DIRECTORY-2 is path to directory on secondary OS
+    printf "DIRECTORY-1 is path to directory on primary (Linux) OS \n";
+    printf "DIRECTORY-2 is path to directory on secondary OS \n\n";
 
-            Options
-                --add               add pair of directories across OSs to sync
-                --list              list all directories currently being synced
-                --remove            remove and stop syncing pair of directories \n\n
-            ";
+    printf "Options \n"
+    printf "    --add               add pair of directories across OSs to sync \n";
+    printf "    --list              list all directories currently being synced \n";
+    printf "    --remove            remove and stop syncing pair of directories \n\n";
 fi

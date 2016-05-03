@@ -20,6 +20,9 @@ then
         # Remove rsync cronjobs associated with specified directories
         crontab -l | grep -v "* * * * * rsync -a $1/ $WIN_OS_DIR/" | crontab -
         crontab -l | grep -v "* * * * * rsync -a $WIN_OS_DIR/ $1/" | crontab -
+
+        # Remove from syncos tracker file syncos_track.txt
+        # TODO
     else
         printf "Directories not recognized \n";
         printf "Type syncos for usage help \n";
