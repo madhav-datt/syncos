@@ -4,10 +4,11 @@ Working on two operating systems can be a pain, and even more so if you use both
 
 ## Installing syncos
 
+### From source
+
 ```shell
-$ wget -P ~/Downloads https://github.com/madhav-datt/syncos/archive/syncos-v1.0.zip
-$ unzip ~/Downloads/syncos-v1.0.zip
-$ mv ~/Downloads/syncos-syncos-v1.0 ~/Downloads/syncos
+$ cd ~/Downloads
+$ git clone https://github.com/madhav-datt/syncos.git
 $ chmod +x syncos/install
 $ sudo syncos/install
 ```
