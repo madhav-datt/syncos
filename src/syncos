@@ -33,7 +33,7 @@ then
         rm tmp_cron
 
         # Save directory pair to tracker file syncos_track.txt
-        echo "$1/ $WIN_OS_DIR/" >> syncos_track.txt
+        echo "$1 $2" >> syncos_track.txt
     else
         printf "Directories $1 or $2 not found - syncos failed \n";
     fi

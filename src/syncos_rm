@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# Remove pre-synced directories from syncos/stop syncing
+#
+# Copyright (C)   2016    Madhav Datt
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+
+if [[ $# == 2 ]]
+then
+    # Build absolute paths for directory $2
+    # Directory path $2 passed by the user is relative to C:// of Windows OS
+    # Example: $2 = Users//Madhav//Desktop//Work
+    WIN_OS_DIR="/mnt/""$2"
+
+    # Check is directories $1 and $2 exist
+    # Can handle both hardlinks and symlinks
+    if [[ -d "$1" ]] && [[ -d "$WIN_OS_DIR" ]]
+    then
+        # Remove rsync cronjobs associated with specified directories
+        crontab -l | grep -v "* * * * * rsync -a $1/ $WIN_OS_DIR/" | crontab -
+        crontab -l | grep -v "* * * * * rsync -a $WIN_OS_DIR/ $1/" | crontab -
+    else
+        printf "Directories not recognized \n";
+        printf "Type syncos for usage help \n";
+
+# Check for number of arguments passed while executing script
+# Reject if exactly 2 arguments are not present
+else
+    # Delete any files that are in OS2_Directory and not in OS1_Directory
+    printf "Usage: syncos --remove folder/path/OS1_DIRECTORY folder/path/OS2_DIRECTORY \n";
+    printf "Paths to OS1_DIRECTORY and OS2_DIRECTORY must be exactly as were added \n";
+    printf "Check added paths to directories: syncos --list \n";
+fi
