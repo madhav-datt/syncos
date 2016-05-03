@@ -23,31 +23,22 @@ then
 
 
 else
-    rsync  version 3.1.1  protocol version 31
-Copyright (C) 1996-2014 by Andrew Tridgell, Wayne Davison, and others.
-Web site: http://rsync.samba.org/
-Capabilities:
-    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,
-    socketpairs, hardlinks, symlinks, IPv6, batchfiles, inplace,
-    append, ACLs, xattrs, iconv, symtimes, prealloc
+    printf "            syncos Copyright (C) 2016 by Madhav Datt
+            Website: https://github.com/madhav-datt/syncos
+            syncos comes with ABSOLUTELY NO WARRANTY.  This is free software, and you
+            are welcome to redistribute it under certain conditions.  See the GNU
+            General Public Licence for details.
 
-syncos comes with ABSOLUTELY NO WARRANTY.  This is free software, and you
-are welcome to redistribute it under certain conditions.  See the GNU
-General Public Licence for details.
+            Usage: syncos --add ... DIRECTORY-1... DIRECTORY-2
+              or   syncos --list
+              or   syncos --remove ... DIRECTORY-1... DIRECTORY-2
 
-Usage: rsync [OPTION]... SRC [SRC]... DEST
-  or   rsync [OPTION]... SRC [SRC]... [USER@]HOST:DEST
-  or   rsync [OPTION]... SRC [SRC]... [USER@]HOST::DEST
-  or   rsync [OPTION]... SRC [SRC]... rsync://[USER@]HOST[:PORT]/DEST
-  or   rsync [OPTION]... [USER@]HOST:SRC [DEST]
-  or   rsync [OPTION]... [USER@]HOST::SRC [DEST]
-  or   rsync [OPTION]... rsync://[USER@]HOST[:PORT]/SRC [DEST]
-The ':' usages connect via remote shell, while '::' & 'rsync://' usages connect
-to an rsync daemon, and require SRC or DEST to start with a module name.
+            DIRECTORY-1 is path to directory on primary (Linux) OS
+            DIRECTORY-2 is path to directory on secondary OS
 
-Options
-    --add               increase verbosity
-    --list
-    --remove
-
+            Options
+                --add               add pair of directories across OSs to sync
+                --list              list all directories currently being synced
+                --remove            remove and stop syncing pair of directories \n\n
+            ";
 fi
