@@ -22,7 +22,9 @@ then
         crontab -l | grep -v "* * * * * rsync -a $WIN_OS_DIR/ $1/" | crontab -
 
         # Remove from syncos tracker file syncos_track.txt
-        # TODO
+        cat syncos_track.txt | grep -v "$1 $2" > tmp_track.txt
+        rm syncos_track.txt
+        mv tmp_track.txt syncos_track.txt
     else
         printf "Directories not recognized \n";
         printf "Type syncos for usage help \n";
