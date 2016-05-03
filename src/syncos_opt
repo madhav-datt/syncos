@@ -19,12 +19,12 @@ then
     then
         cat syncos_track.txt
     else
-        printf "No directories added for syncing yet \n"
+        printf "No directories added for syncing yet \n";
 
 # Stop syncing directories
 elif [[ $# == 3 ]] && [[ $1 == "--remove" ]]
 then
-
+    ./syncos_rm "$2" "$3"
 
 # Display help if incorrect OPTION used
 else
