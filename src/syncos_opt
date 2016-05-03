@@ -7,15 +7,47 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 
-if [[ $# == 0 ]]
-then
-    printf "Usage: syncos --flag [argument_1] [argument_2]";
-
-elif [[ $1 == "--add" ]]
+# Add new pair of directories to sync
+if [[ $# == 3 ]] && [[ $1 == "--add" ]]
 then
     ./syncos "$2" "$3"
 
-elif [[ $1 == "--list" ]]
+# List all directories being syncos'ed
+elif [[ $# == 1 ]] && [[ $1 == "--list" ]]
 then
-    
+
+
+# Stop syncing directories
+elif [[ $# == 3 ]] && [[ $1 == "--remove" ]]
+then
+
+
+else
+    rsync  version 3.1.1  protocol version 31
+Copyright (C) 1996-2014 by Andrew Tridgell, Wayne Davison, and others.
+Web site: http://rsync.samba.org/
+Capabilities:
+    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,
+    socketpairs, hardlinks, symlinks, IPv6, batchfiles, inplace,
+    append, ACLs, xattrs, iconv, symtimes, prealloc
+
+syncos comes with ABSOLUTELY NO WARRANTY.  This is free software, and you
+are welcome to redistribute it under certain conditions.  See the GNU
+General Public Licence for details.
+
+Usage: rsync [OPTION]... SRC [SRC]... DEST
+  or   rsync [OPTION]... SRC [SRC]... [USER@]HOST:DEST
+  or   rsync [OPTION]... SRC [SRC]... [USER@]HOST::DEST
+  or   rsync [OPTION]... SRC [SRC]... rsync://[USER@]HOST[:PORT]/DEST
+  or   rsync [OPTION]... [USER@]HOST:SRC [DEST]
+  or   rsync [OPTION]... [USER@]HOST::SRC [DEST]
+  or   rsync [OPTION]... rsync://[USER@]HOST[:PORT]/SRC [DEST]
+The ':' usages connect via remote shell, while '::' & 'rsync://' usages connect
+to an rsync daemon, and require SRC or DEST to start with a module name.
+
+Options
+    --add               increase verbosity
+    --list
+    --remove
+
 fi

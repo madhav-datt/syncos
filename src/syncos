@@ -17,7 +17,7 @@ then
     WIN_OS_DIR="/mnt/""$2"
 
     # Check is directories $1 and $2 exist
-    # Directories could be symbolic links
+    # Can handle both hardlinks and symlinks
     if [[ -d "$1" ]] && [[ -d "$WIN_OS_DIR" ]]
     then
         # Add rsync commands to crontab
