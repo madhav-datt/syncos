@@ -15,13 +15,18 @@ then
 # List all directories being syncos'ed
 elif [[ $# == 1 ]] && [[ $1 == "--list" ]]
 then
-
+    if [[ -f "syncos_track.txt" ]]
+    then
+        cat syncos_track.txt
+    else
+        printf "No directories added for syncing yet \n"
 
 # Stop syncing directories
 elif [[ $# == 3 ]] && [[ $1 == "--remove" ]]
 then
 
 
+# Display help if incorrect OPTION used
 else
     printf "            syncos Copyright (C) 2016 by Madhav Datt
             Website: https://github.com/madhav-datt/syncos

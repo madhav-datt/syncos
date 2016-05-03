@@ -7,27 +7,35 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 
-apt-get install rsync
+if [[ $# != 1 ]] || [[ ! -d "/dev/$1" ]]
+then
+    printf "Usage: ./install disk_part \n";
+    printf "disk_part is partition containing secondary OS \n";
+    printf "Use ./install sda3 if secondary OS is in /dev/sda3 \n";
 
-# Pass disk partition of secondary OS as argument
-umount /dev/"$1"
-mount /dev/"$1" /mnt
+else
+    apt-get install rsync
 
-# Move super-focus to /etc
-cd /etc
-mkdir syncos
-mv ~/Downloads/syncos/* /etc/syncos
-cd /etc/syncos
+    # Pass disk partition of secondary OS as argument
+    umount /dev/"$1"
+    mount /dev/"$1" /mnt
 
-# Grant execute permissions to shell scripts
-chmod +x src/syncos_opt
-chmod +x src/syncos
-chmod +x src/syncos_rm
+    # Move super-focus to /etc
+    cd /etc
+    mkdir syncos
+    mv ~/Downloads/syncos/* /etc/syncos
+    cd /etc/syncos
 
-# Add permanent aliases for scripts
-cat aliases.txt >> ~/.bash_aliases
-. ~/.bashrc
+    # Grant execute permissions to shell scripts
+    chmod +x src/syncos_opt
+    chmod +x src/syncos
+    chmod +x src/syncos_rm
 
-# Clean downloaded folders
-rm -rf ~/Downloads/syncos
-rm ~/Downloads/syncos-v1.0.zip
+    # Add permanent aliases for scripts
+    cat aliases.txt >> ~/.bash_aliases
+    . ~/.bashrc
+
+    # Clean downloaded folders
+    rm -rf ~/Downloads/syncos
+    rm ~/Downloads/syncos-v1.0.zip
+fi

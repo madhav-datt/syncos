@@ -42,5 +42,5 @@ then
 # Reject if exactly 2 arguments are not present
 else
     # Delete any files that are in OS2_Directory and not in OS1_Directory
-    printf "Usage: syncos folder/path/OS1_Directory folder/path/OS2_Directory \n";
+    printf "Usage: syncos --add folder/path/OS1_DIRECTORY folder/path/OS2_DIRECTORY \n";
 fi
