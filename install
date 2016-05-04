@@ -37,5 +37,4 @@ else
 
     # Clean downloaded folders
     rm -rf ~/Downloads/syncos
-    rm ~/Downloads/syncos-v1.0.zip
 fi
