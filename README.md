@@ -19,6 +19,13 @@ The program uses `rsync` which will be installed by the `install` script.
 
 Suppose you are working on the final project for one of your courses and have folders for it on both the operating systems (Ubuntu and Windows) of your laptop. On the Ubuntu partition, your code is in a folder called `cs121-final-project` on the desktop and on your Windows desktop in a folder called `project_cs121`. 
 
+```shell
+$ syncos --help
+$ syncos --add DIRECTORY_OS1 DIRECTORY_OS2
+$ syncos --list
+$ syncos --remove DIRECTORY_OS1 DIRECTORY_OS2
+```
+
 ### help :question:
 
 To figure out what to do if you get stuck:
